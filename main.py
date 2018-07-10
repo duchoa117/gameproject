@@ -1,9 +1,7 @@
 import pygame
-from player.player import Player
 
 import game_object
 
-from enemy.enemy_spawner import EnemySpawner
 from input.input_manager import InputManager
 
 BG = (0, 0, 0)
@@ -12,7 +10,7 @@ BG = (0, 0, 0)
 pygame.init()
 
 # 2. Set screen
-SIZE = (600, 800)
+SIZE = (800, 600)
 canvas = pygame.display.set_mode(SIZE)
 
 # 3. Clock
@@ -21,11 +19,6 @@ clock = pygame.time.Clock()
 loop = True
 
 input_manager = InputManager()
-
-player = Player(400, 580, input_manager)
-
-game_object.add(player)
-game_object.add(EnemySpawner())
 
 while loop:
     # 1. Event processing
@@ -43,7 +36,7 @@ while loop:
 
     game_object.render(canvas)
 
-    pygame.display.set_caption('Micro game')
+    pygame.display.set_caption('Jet zero')
 
     # 3. Flip
     pygame.display.flip()
