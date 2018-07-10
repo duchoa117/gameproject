@@ -12,6 +12,7 @@ pygame.init()
 # 2. Set screen
 SIZE = (800, 600)
 canvas = pygame.display.set_mode(SIZE)
+pygame.display.set_caption('Jet zero')
 
 # 3. Clock
 clock = pygame.time.Clock()
@@ -35,8 +36,6 @@ while loop:
     canvas.fill(BG)
 
     game_object.render(canvas)
-
-    pygame.display.set_caption('Jet zero')
 
     # 3. Flip
     pygame.display.flip()
