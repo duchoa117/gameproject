@@ -3,6 +3,7 @@ import pygame
 import game_object
 
 from input.input_manager import InputManager
+from maps.map_generate_map import generate_map
 
 BG = (0, 0, 0)
 
@@ -10,7 +11,7 @@ BG = (0, 0, 0)
 pygame.init()
 
 # 2. Set screen
-SIZE = (800, 600)
+SIZE = (40*16, 30*16)
 canvas = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('Jet zero')
 
@@ -20,6 +21,9 @@ clock = pygame.time.Clock()
 loop = True
 
 input_manager = InputManager()
+
+generate_map("assets/maps/map.json")
+
 
 while loop:
     # 1. Event processing
@@ -36,7 +40,7 @@ while loop:
     canvas.fill(BG)
 
     game_object.render(canvas)
-
+    # canvas.blit(image, (0, 0))
     # 3. Flip
     pygame.display.flip()
     clock.tick(60)
