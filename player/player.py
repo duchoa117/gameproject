@@ -25,11 +25,8 @@ class Player(GameObject):
         if self.input_manager.up_pressed:
             self.renderer = ImageRenderer("assets/images/sprite/player_up.png")
             self.box_collider.y = self.y - 2
-            for game_object in game_objects:
-                if type(game_object) == Wall:
-                    overlap = BoxCollider.overlap(self.box_collider,game_object.box_collider)
-                    if overlap:
-                        self.overlap = True
+            self.check_overlap()
+
 
             if self.overlap:
                 self.dy += 0
@@ -43,11 +40,8 @@ class Player(GameObject):
 
             self.box_collider.y = self.y + 2
 
-            for game_object in game_objects:
-                if type(game_object) == Wall:
-                    overlap = BoxCollider.overlap(self.box_collider,game_object.box_collider)
-                    if overlap:
-                        self.overlap = True
+            self.check_overlap()
+
 
             if self.overlap:
                 self.dy += 0
@@ -60,11 +54,7 @@ class Player(GameObject):
 
             self.box_collider.x = self.x - 2
 
-            for game_object in game_objects:
-                if type(game_object) == Wall:
-                    overlap = BoxCollider.overlap(self.box_collider,game_object.box_collider)
-                    if overlap:
-                        self.overlap = True
+            self.check_overlap()
 
             if self.overlap:
                 self.dx += 0
@@ -76,11 +66,8 @@ class Player(GameObject):
             self.renderer = ImageRenderer("assets/images/sprite/player_right.png")
 
             self.box_collider.x = self.x + 2
-            for game_object in game_objects:
-                if type(game_object) == Wall:
-                    overlap = BoxCollider.overlap(self.box_collider,game_object.box_collider)
-                    if overlap:
-                        self.overlap = True
+            self.check_overlap()
+
 
             if self.overlap:
                 self.dx += 0
@@ -95,6 +82,13 @@ class Player(GameObject):
 
     def render(self, canvas):
         GameObject.render(self,canvas)
+    def check_overlap(self):
+        for game_object in game_objects:
+            if type(game_object) == Wall:
+                overlap = BoxCollider.overlap(self.box_collider, game_object.box_collider)
+                if overlap:
+                    self.overlap = True
+
 
 
 

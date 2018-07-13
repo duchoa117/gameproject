@@ -6,8 +6,7 @@ from physics import box_collider
 from map_titles.wall import Wall
 
 # from input.input_manager import InputManager
-
-class Enemy(GameObject):
+class Enemy1(GameObject):
     def __init__(self, x, y):
         GameObject.__init__(self,x ,y)
         self.overlap = False
@@ -52,12 +51,3 @@ class Enemy(GameObject):
 
     def render(self, canvas):
         GameObject.render(self,canvas)
-
-
-
-
-
-
-
-
-

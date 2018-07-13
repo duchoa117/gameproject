@@ -1,5 +1,6 @@
 import pygame
 from player import create_player
+from enemy import create_enemy
 import game_object
 
 from input.input_manager import InputManager
@@ -24,6 +25,7 @@ input_manager = InputManager()
 
 generate_map("assets/maps/map.json")
 create_player.create_player(input_manager)
+create_enemy.create_enemy()
 
 
 
