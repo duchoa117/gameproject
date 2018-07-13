@@ -1,11 +1,11 @@
 import pygame
-
+from player import create_player
 import game_object
 
 from input.input_manager import InputManager
 from maps.map_generate_map import generate_map
 
-BG = (0, 0, 0)
+BG = pygame.image.load("assets/images/36987938_870119473192633_6676325747356860416_n.png")
 
 # 1. Init pygame
 pygame.init()
@@ -13,8 +13,8 @@ pygame.init()
 # 2. Set screen
 SIZE = (40*16, 30*16)
 canvas = pygame.display.set_mode(SIZE)
-pygame.display.set_caption('Jet zero')
 
+pygame.display.set_caption('Jet zero')
 # 3. Clock
 clock = pygame.time.Clock()
 
@@ -23,6 +23,8 @@ loop = True
 input_manager = InputManager()
 
 generate_map("assets/maps/map.json")
+create_player.create_player(input_manager)
+
 
 
 while loop:
@@ -34,10 +36,11 @@ while loop:
         else:
             input_manager.update(event)
 
+
     game_object.update()
 
     # 2. Draw
-    canvas.fill(BG)
+    canvas.blit(BG,(0,0))
 
     game_object.render(canvas)
     # canvas.blit(image, (0, 0))

@@ -40,6 +40,7 @@ def collide_with(box_collider, wanted_type):
 
     return collide_list
 
+
 class GameObject:
     def __init__(self, x, y):
         self.x = x

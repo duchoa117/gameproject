@@ -18,8 +18,8 @@ def load_map(json_file_url):
 def generate_map(json_file_url):
     data, width, height = load_map(json_file_url)
     for index, title in enumerate(data):
-        title_x = (index % width)*16
-        title_y = (index // width)*16
+        title_x = (index % width)*16 + 8
+        title_y = (index // width)*16 + 8
         if title == 0:
             pass
         elif title == 1:
@@ -47,7 +47,7 @@ def generate_map(json_file_url):
             game_object.add(Wall(title_x,title_y,"assets/images/sprite/wal11.png"))
 
         elif title == 9:
-            game_object.add(Wall(title_x, title_y, "assets/images/sprite/flood1.png"))
+            pass
 
         elif title == 10:
             game_object.add(Wall(title_x,title_y,"assets/images/sprite/wall11.png"))
