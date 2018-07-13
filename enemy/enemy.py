@@ -13,11 +13,11 @@ class Enemy(GameObject):
         self.overlap = False
         # 1 load image
         self.renderer = ImageRenderer("assets/images/sprite/enemy/enemy1_down.png")
-        self.width = 25
-        self.height = 25
+        self.width = 30
+        self.height = 30
         self.box_collider = BoxCollider(self.width, self.height)
         self.dx = 0
-        self.dy = 2
+        self.dy = 3
 
     def update(self):
         GameObject.update(self)
@@ -30,7 +30,6 @@ class Enemy(GameObject):
                 if overlap:
                     self.overlap = True
         if self.overlap:
-            print("ok")
             self.dy = - self.dy
         if self.dy > 0:
             self.renderer = ImageRenderer("assets/images/sprite/enemy/enemy1_down.png")

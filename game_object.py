@@ -28,6 +28,10 @@ def recycle(t, x, y):
     new_game_object = t(x, y)
     add(new_game_object)
     return new_game_object
+def remove():
+    for game_object in game_objects:
+        if not game_object.is_active:
+            game_objects.remove(game_object)
 
 
 def collide_with(box_collider, wanted_type):

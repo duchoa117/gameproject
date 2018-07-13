@@ -1,6 +1,7 @@
 import pygame
 from player import create_player
 from enemy import create_enemy
+from gift import create_gift
 import game_object
 
 from input.input_manager import InputManager
@@ -26,7 +27,7 @@ input_manager = InputManager()
 generate_map("assets/maps/map.json")
 create_player.create_player(input_manager)
 create_enemy.create_enemy()
-
+create_gift.create_gift()
 
 
 while loop:
@@ -45,6 +46,7 @@ while loop:
     canvas.blit(BG,(0,0))
 
     game_object.render(canvas)
+    game_object.remove()
     # canvas.blit(image, (0, 0))
     # 3. Flip
     pygame.display.flip()

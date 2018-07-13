@@ -11,7 +11,6 @@ def load_map(json_file_url):
     data = map.layers[0].data
     width = map.width
     height = map.height
-    print(width, height, data)
     # 3 convert dic to object
     return data, width, height
 
