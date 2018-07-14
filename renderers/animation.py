@@ -1,7 +1,5 @@
 import pygame
 from frame_counter import FrameCounter
-
-
 class Animation:
     def __init__(self, image_urls, loop=False, frame_delay=3):
         self.images = [pygame.image.load(image_url) for image_url in image_urls]

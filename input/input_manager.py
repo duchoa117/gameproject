@@ -40,3 +40,5 @@ class InputManager:
                 self.up_pressed = False
             elif event.key == pygame.K_x:
                 self.x_pressed = False
+
+global_input_manager = InputManager()

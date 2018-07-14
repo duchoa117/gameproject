@@ -1,5 +1,5 @@
 game_objects = []
-
+gamelevel = []
 
 def add(game_object):
     game_objects.append(game_object)
@@ -10,6 +10,8 @@ def update():
         if game_object.is_active:
             game_object.update()
 
+def clear():
+    game_objects.clear()
 
 def render(canvas):
     for game_object in game_objects:

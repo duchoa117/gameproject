@@ -11,7 +11,7 @@ class BoxCollider(GameObject):
     def render(self, canvas):
         RED = (255, 0, 0)
         rect = (self.x - self.width / 2, self.y - self.height / 2, self.width, self.height)
-        pygame.draw.rect(canvas, RED, rect, 1)
+        # pygame.draw.rect(canvas, RED, rect, 1)
 
     def corners(self):
         return (
