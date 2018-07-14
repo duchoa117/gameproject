@@ -33,11 +33,8 @@ class Enemy(GameObject):
             self.dy = - self.dy
         if self.dy > 0:
             self.renderer = ImageRenderer("assets/images/sprite/enemy/enemy1_down.png")
-
         else:
-
             self.renderer = ImageRenderer("assets/images/sprite/enemy/enemy1_up.png")
-
         self.y += self.dy
         self.overlap = False
         self.box_collider.y = self.y

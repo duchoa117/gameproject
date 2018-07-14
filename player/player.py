@@ -95,7 +95,7 @@ class Player(GameObject):
         self.overlap = False
 
     def shoot(self):
-
+        print(self.can_shoot)
         if self.can_shoot:
             if self.input_manager.x_pressed and not self.shoot_lock:
                 bullet_player = BulletPlayer(self.x, self.y, self.shootX, self.shootY)
