@@ -67,7 +67,7 @@ class Player(GameObject):
         GameObject.update(self)
 
         if self.input_manager.up_pressed:
-            self.player_sound("music/player/player_move.wav")
+            pygame.mixer.Channel(0).play(pygame.mixer.Sound("music/player/player_move.wav"))
             self.shootX = 0
             self.shootY = -6
             self.renderer = ImageRenderer("assets/images/sprite/player_up.png")
@@ -78,7 +78,7 @@ class Player(GameObject):
             else:
                 self.dy += -self.speed
         elif self.input_manager.down_pressed:
-            self.player_sound("music/player/player_move.wav")
+            pygame.mixer.Channel(1).play(pygame.mixer.Sound("music/player/player_move.wav"))
             
             self.shootX = 0
             self.shootY = 6
@@ -90,7 +90,7 @@ class Player(GameObject):
             else:
                 self.dy += self.speed
         elif self.input_manager.left_pressed:
-            self.player_sound("music/player/player_move.wav")
+            pygame.mixer.Channel(1).play(pygame.mixer.Sound("music/player/player_move.wav"))
             
             self.shootX = -6
             self.shootY = 0
@@ -103,7 +103,8 @@ class Player(GameObject):
             else:
                 self.dx += -self.speed
         elif self.input_manager.right_pressed:
-            self.player_sound("music/player/player_move.wav")
+            pygame.mixer.Channel(1).play(pygame.mixer.Sound("music/player/player_move.wav"))
+
             
             self.shootX = 6
             self.shootY = 0
@@ -133,7 +134,7 @@ class Player(GameObject):
     def shoot(self):
         if self.can_shoot:
             if self.input_manager.x_pressed and not self.shoot_lock:
-                self.player_sound("music/player/player_shoot.wav")
+                pygame.mixer.Channel(2).play(pygame.mixer.Sound("music/player/player_shoot.wav"))
                 bullet_player = BulletPlayer(self.x, self.y, self.shootX, self.shootY)
                 game_object.add(bullet_player)
                 self.shoot_lock = True
@@ -161,10 +162,7 @@ class Player(GameObject):
                     game_object.deactivate()
                     if self.hp <= 0 :
                         self.lose()
-    def player_sound(self, path):
-        effect = pygame.mixer.Sound(path)
-        effect.play()
-        
+
 
 
                 

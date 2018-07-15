@@ -14,10 +14,8 @@ from input.input_manager import global_input_manager
 from maps.map_generate_map import generate_map
 from player.player import Player
 from scenes.game_over_scene import GameOverScene
-# from scenes.scene_manager import global_scene_manager
 
 
-# BG = pygame.image.load("assets/images/36987938_870119473192633_6676325747356860416_n.png")
 
 # 1. Init pygame
 pygame.init()
@@ -37,6 +35,7 @@ global_scene_manager.change_scene(gameplay_scene)
 # 4. music :
 pygame.mixer.music.load('music/game_music.wav')
 pygame.mixer.music.play(-1)
+
 
 
 

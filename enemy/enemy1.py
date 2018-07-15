@@ -8,6 +8,7 @@ from map_titles.wall import Wall
 from random import choice
 from enemy.bullet_tank import BulletTank
 from frame_counter import FrameCounter
+import pygame
 # from enemy.bullet_enemy import BulletEnemy
 
 
@@ -17,7 +18,7 @@ class Enemy1(GameObject):
 
 
         GameObject.__init__(self,x ,y)
-        self.frame_counter = FrameCounter(30)
+        self.frame_counter = FrameCounter(40)
         self.overlap = False
         self._type = _type
         self.die = False
@@ -36,6 +37,7 @@ class Enemy1(GameObject):
         if self._type == "tank" and self.speed == 2:
             self.frame_counter.run()
             if self.frame_counter.expired:
+                pygame.mixer.Channel(5).play(pygame.mixer.Sound("music/player/tank_fire.wav"))
                 bullet_enemy = BulletTank(self.x, self.y, self.dx, self.dy)
                 game_object.add(bullet_enemy)
                 self.frame_counter.reset()

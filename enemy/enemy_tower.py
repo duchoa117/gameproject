@@ -22,10 +22,9 @@ class EnemyTower(GameObject):
         if self.frame_counter.expired :
             for game_object in game_objects:
                 if type(game_object ) == Player:
-                    
+                    pygame.mixer.Channel(4).play(pygame.mixer.Sound("music/player/tower shoot.wav"))
                     bullet_enemy = BulletEnemy(11*16, 15*16, game_object.x, game_object.y)
-                    effect = pygame.mixer.Sound("music/player/tower shoot.wav")
-                    effect.play()
+                    
                     add(bullet_enemy)
                     self.frame_counter.reset()
     def render(self, canvas):

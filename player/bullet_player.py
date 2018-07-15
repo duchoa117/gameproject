@@ -43,14 +43,16 @@ class BulletPlayer(GameObject):
             if type(game_object) == Wall:
                 overlap = BoxCollider.overlap(self.box_collider, game_object.box_collider)
                 if overlap:
-                    self.sound()
+                    pygame.mixer.Channel(6).play(pygame.mixer.Sound("music/player/Boom.wav"))
+
                     self.deactivate()
+
 
         for game_object in game_objects:
             if type(game_object) == Enemy or type(game_object) == Enemy1:
                 overlap = BoxCollider.overlap(self.box_collider, game_object.box_collider)
                 if overlap:
-                    self.sound()
+                    pygame.mixer.Channel(6).play(pygame.mixer.Sound("music/player/Boom.wav"))
                     game_object.hp += -self.dam
                     if game_object.hp <= 0:
                         gamelevel.append("*")
@@ -61,9 +63,7 @@ class BulletPlayer(GameObject):
                 
     def render(self, canvas):
         GameObject.render(self,canvas)
-    def sound(self):
-        effect = pygame.mixer.Sound("music/player/Boom.wav")
-        effect.play()
+
         
 
 

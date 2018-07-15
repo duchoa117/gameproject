@@ -24,15 +24,12 @@ class Coin(GameObject):
                     self.overlap = BoxCollider.overlap(self.box_collider, game_object.box_collider)
                     if self.overlap:
                         self.deactivate()
-                        self.sound()
+                        pygame.mixer.Channel(0).play(pygame.mixer.Sound("music/player/player_get_coin.wav"))
                         game_object.count_coin += 1
 
 
     def render(self, canvas):
         GameObject.render(self,canvas)
-    def sound(self):
-        pingo = pygame.mixer.Sound("music/player/player_get_coin.wav")
-        pingo.play()
         
 
 
